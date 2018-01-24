@@ -1,0 +1,20 @@
+---
+title: "FARS Functions Vignette"
+author: "Cody Schulz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette summarizes the main functions used in the samplePackage2 package
+
+## fars_summarize_years
+
+fars_summarize_years takes year lists as inputs and outputs a data table with the number of accidents per month occurring in the years given.
+
+## fars_map_state
+
+fars_map_state takes year and state.num inputs and plots a map of the selected state with all accidents from that state and year.
