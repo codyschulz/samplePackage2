@@ -35,7 +35,7 @@ fars_read <- function(filename) {
 #' string filename with the format "accident_y.csv.bz2" with y as the
 #' input converted to an integer.
 #'
-#' @param year A numeric vector of length 1
+#' @param year A numeric vector of length 1 -- a year
 #'
 #' @return A character string with format "accident_year.csv.bz2"
 #'
@@ -60,9 +60,9 @@ make_filename <- function(year) {
 #'
 #' @importFrom dplyr mutate select
 #'
-#' @param years a numeric vector of length >= 1
+#' @param years a numeric vector of length >= 1 -- a vector of years
 #'
-#' @return A list of tables
+#' @return A list of dplyr tibble dfs
 #'
 #' @examples
 #' \dontrun{
@@ -99,7 +99,7 @@ fars_read_years <- function(years) {
 #'
 #' @inheritParams fars_read_years
 #'
-#' @return a table with size 12 x (length(years)) + 1
+#' @return a dplyr tibble df with size 12 x (length(years)) + 1
 #'
 #' @examples
 #' \dontrun{
