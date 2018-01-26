@@ -9,12 +9,34 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-This vignette summarizes the main functions used in the samplePackage2 package
+This vignette describes the R package 'samplePackage2'. The package can read in, summarize, and map 2013-2015 motor vehicle accident data from the US National Highway Traffic Safety Administration's [Fatality Analysis Reporting System](https://www.nhtsa.gov/research-data/fatality-analysis-reporting-system-fars) (FARS).
 
-## fars_summarize_years
+## Reading in Data
 
-fars_summarize_years takes year lists as inputs and outputs a data table with the number of accidents per month occurring in the years given.
+samplePackage2 has several ways to read in data. The first is to use fars_read() and make_filename() in conjunction. For example, to read in data from 2013, use:
+```{r}
+library(samplePackage2)
+fars_read(make_filename(2013))
+```
 
-## fars_map_state
+To read in multiple years of data, supply a vector of years to fars_read_years:
+```{r}
+fars_read_years(c(2013, 2014, 2015))
+```
 
-fars_map_state takes year and state.num inputs and plots a map of the selected state with all accidents from that state and year.
+Notice that the output of the first call was a single data frame, but the output of the second was a list of data frames.
+
+## Summarizing Data
+
+To use the package's built-in summarizing functions, simply call fars_summarize_years with a vector of years whose summary is desired. fars_summarize_years returns a data table with the number of accidents per month occurring in the years given.
+```{r}
+fars_summarize_years(c(2013, 2014))
+```
+
+## Mapping Data
+
+To use the package's built-in mapping functions, provide fars_map_state with a year and state number. The function will then output a plot of each accident in that state in the given year. The state number corresponds to the alphabetized listing of states (1 = Alabama, 56 = Wyoming).
+
+```{r}
+fars_map_state(16, 2013)
+```
